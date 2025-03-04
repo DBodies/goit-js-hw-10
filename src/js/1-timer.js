@@ -23,7 +23,7 @@ const options = {
   onClose(selectedDates) {
       selectedDay = selectedDates[0];
       
-      if (selectedDates <= new Date()) {
+      if (selectedDay <= new Date()) {
           startBtn.disabled = true
           iziToast.error({
               title: "Error",
@@ -41,11 +41,11 @@ function addZero(value) {
 }
 function updateTime(timeLeft) {
     const days = Math.floor(timeLeft /  (1000 * 60 * 60 * 24))
-    const hours = Math.floor(timeLeft %  (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor(timeLeft %  (1000 * 60 * 60) / (1000 * 60))
     const seconds = Math.floor(timeLeft % (1000 * 60) / 1000)
      daysSpan.textContent = addZero(days);
-  hoursSpan.textCont = addZero (hours);
+  hoursSpan.textContent = addZero(hours);
   minutesSpan.textContent = addZero(minutes);
   secondsSpan.textContent = addZero(seconds);
 } 
